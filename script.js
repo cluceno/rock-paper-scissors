@@ -21,13 +21,6 @@ function getComputerChoice() {
     }
 }
 
-// Create function called getHumanChoice
-
-function getHumanChoice() {
-    let choice = prompt("Rock, paper, or scissors?")
-    return choice.toLowerCase()
-}
-
 // Declare score variables
 
 let humanScore = 0;
@@ -59,15 +52,22 @@ function playRound(humanChoice,computerChoice) {
     }
 }
 
-// Write logic to play a game of 5 rounds
+const choice = document.querySelector(".choices");
+let roundResult = document.querySelector("#roundResult");
+let runningScore = document.querySelector("#runningScore");
+let finalScore = document.querySelector("#finalScore");
 
-function playGame() {
-    let result = playRound(getHumanChoice(),getComputerChoice());
-    console.log(result);
-}
+choice.addEventListener("click", (e) => {
+    if (e.target.matches("button")) {
+        if (humanScore === 5 || computerScore === 5) return;
+        
+        const humanChoice = e.target.dataset.choice;
+        const result = playRound(humanChoice,getComputerChoice());
+        roundResult.textContent = result;
+        runningScore.textContent = `Score - You: ${humanScore}, Computer: ${computerScore}`;
 
-for (let i = 0; i < 5; i++) {
-    playGame()
-}
-
-console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`)
+        if (humanScore === 5 || computerScore === 5) {
+            finalScore.textContent = `Game Over. Final score: You: ${humanScore}, Computer: ${computerScore}`;
+        };
+    }});
+    
