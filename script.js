@@ -39,19 +39,17 @@ function capitalize(str) {
 }
 
 function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        return `It's a tie!`;
+    }
+
     if ((humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "scissors" && computerChoice === "paper") ||
         (humanChoice === "paper" && computerChoice === "rock")) {
             humanScore++;    
             return `You win! ${capitalize(humanChoice)} beats ${computerChoice}!`;
-
-    } else if ((humanChoice === "scissors" && computerChoice === "rock") ||
-        (humanChoice === "paper" && computerChoice === "scissors") ||
-        (humanChoice === "rock" && computerChoice === "paper")) {
-            computerScore++;
-            return `You lose! ${capitalize(computerChoice)} beats ${humanChoice}!`;
-
-    } else if (humanChoice === computerChoice) {
-        return `It's a tie!`;
     }
+    
+    computerScore++;
+    return `You lose! ${capitalize(computerChoice)} beats ${humanChoice}!`;
 }
