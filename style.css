@@ -1,0 +1,71 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: black;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 16px;
+    font-family: "Bitcount Single", sans-serif;
+    color: greenyellow;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: aquamarine;
+    border: none;
+    border-radius: 4px; 
+    padding: 8px 16px;
+    font-weight: 900;
+}
+
+button:hover {
+    background-color: green;
+}
+
+.scoreUpdates{
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+#roundResult, #runningScore, #finalScore {
+    min-height: 24px;
+    font-size: 16px;
+}
+
+#reset {
+    display: none;
+}
+
+#playAgain {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    min-height: 32px;
+}

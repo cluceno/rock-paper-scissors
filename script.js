@@ -4,6 +4,7 @@ const choice = document.querySelector(".choices");
 const roundResult = document.querySelector("#roundResult");
 const runningScore = document.querySelector("#runningScore");
 const finalScore = document.querySelector("#finalScore");
+const reset = document.querySelector("#reset");
 
 let humanScore = 0;
 let computerScore = 0; 
@@ -13,6 +14,15 @@ choice.addEventListener("click", (e) => {
         handleRound(e.target.dataset.choice);
     }
 });
+
+reset.addEventListener("click", () => {
+    humanScore = 0;
+    computerScore = 0;
+    roundResult.textContent = "";
+    runningScore.textContent = "";
+    finalScore.textContent = "";
+    reset.style.display = "none"; 
+})
 
 function handleRound(humanChoice) {
     if (humanScore === 5 || computerScore === 5) return;
@@ -24,8 +34,10 @@ function handleRound(humanChoice) {
 
     if (humanScore === 5) {
         finalScore.textContent = "Game Over! You win!";
+        reset.style.display = "block";
     } else if (computerScore === 5) {
         finalScore.textContent = "Game over! Computer wins!";
+        reset.style.display = "block";
     }
 }
     
@@ -49,7 +61,7 @@ function playRound(humanChoice, computerChoice) {
             humanScore++;    
             return `You win! ${capitalize(humanChoice)} beats ${computerChoice}!`;
     }
-    
+
     computerScore++;
     return `You lose! ${capitalize(computerChoice)} beats ${humanChoice}!`;
 }
